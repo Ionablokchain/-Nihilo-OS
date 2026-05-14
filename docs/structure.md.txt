@@ -1,0 +1,124 @@
+nihilo-os/
+│
+├── README.md                          # General project overview
+├── LICENSE                            # MIT License
+├── CONTRIBUTING.md                    # Contribution guidelines
+├── CODE_OF_CONDUCT.md                 # Code of conduct
+├── CHANGELOG.md                       # Version history
+│
+├── docs/                              # Complete documentation
+│   ├── philosophy.md                  # The "from another world" philosophy of Nihilo
+│   ├── architecture.md                # Overall architecture (kernel, TVM, causal mosaic)
+│   ├── user-manual.md                 # User manual (how to use the system)
+│   ├── flux-language-reference.md     # Complete reference for the Flux language
+│   ├── security-model.md              # Security via paradoxes and temporal consensus
+│   ├── internals/                     # Internal documentation for developers
+│   │   ├── kernel-fractal.md          # Design of the fractal kernel
+│   │   ├── temporal-scheduler.md      # Temporal scheduler algorithm
+│   │   ├── causal-mosaic.md           # Implementation of the causal mosaic
+│   │   ├── paradox-engine.md          # Paradox generation and resolution engine
+│   │   └── quantum-memory-model.md    # Non‑volatile quantum memory model
+│   └── api/                           # API for extensions and drivers
+│       ├── native-functions.md        # Native functions available in Flux
+│       └── hardware-abstraction.md    # Hardware abstraction layer
+│
+├── flux/                              # Flux language compiler
+│   ├── README.md                      # Flux‑specific overview
+│   ├── setup.py                       # Python installation script
+│   ├── requirements.txt               # Python dependencies
+│   ├── fluxc/                         # Compiler source code
+│   │   ├── __init__.py
+│   │   ├── lexer.py                   # Lexical analysis
+│   │   ├── parser.py                  # Syntax analysis (AST)
+│   │   ├── semantic.py                # Semantic analysis (type checking, intentions)
+│   │   ├── codegen.py                 # Bytecode generation for TVM
+│   │   ├── optimizer.py               # Temporal optimizations (prune phantom timelines)
+│   │   └── cli.py                     # Command‑line interface (fluxc)
+│   ├── tvm/                           # Temporal Virtual Machine (executor)
+│   │   ├── __init__.py
+│   │   ├── vm.py                      # TVM implementation (emulator)
+│   │   ├── timeline.py                # Timeline management
+│   │   ├── collapse.py                # Probabilistic collapse algorithms
+│   │   ├── paradox.py                 # Paradox engine
+│   │   ├── mosaic.py                  # Causal mosaic implementation
+│   │   └── cli.py                     # Executable (tvm)
+│   ├── debugger/                      # Symbolic debugger
+│   │   ├── __init__.py
+│   │   ├── repl.py                    # Interactive debugger console
+│   │   ├── timeline_inspector.py      # Timeline inspection
+│   │   └── rewriter.py                # Timeline rewriting (undo)
+│   └── stdlib/                        # Standard library for Flux
+│       ├── core.flux                  # Core intentions and utilities
+│       ├── io.flux                    # Input/output sensations
+│       ├── timeline.flux              # Timeline manipulation functions
+│       ├── paradox.flux               # Paradox helpers
+│       └── math.flux                  # Probabilistic math functions
+│
+├── kernel/                            # Fractal kernel source (reference design)
+│   ├── README.md                      # Kernel architecture overview
+│   ├── bootstrap/                     # Boot sequence
+│   │   ├── wake.flux                  # First intention executed at boot
+│   │   └── hardware_probe.flux        # Hardware analysis and driver synthesis
+│   ├── core/                          # Core kernel modules
+│   │   ├── intention_scheduler.flux   # Temporal intention scheduler
+│   │   ├── timeline_manager.flux      # Timeline creation, merging, pruning
+│   │   ├── collapse_engine.flux       # Probability collapse engine
+│   │   ├── paradox_resolver.flux      # Paradox resolution logic
+│   │   └── causal_mosaic.flux         # Mosaic implementation
+│   └── hardware/                      # Hardware abstraction layer
+│       ├── quantum_memory.flux        # Quantum memory interface
+│       ├── neural_interface.flux      # Neural sensation I/O
+│       └── temporal_clock.flux        # Causal time provider
+│
+├── hardware/                          # Hardware design files (for FPGA/quantum)
+│   ├── README.md                      # Hardware overview
+│   ├── rtl/                           # Register‑transfer level (Verilog/Chisel)
+│   │   ├── quantum_memory.v           # Quantum memory controller
+│   │   ├── temporal_clock.v           # Causal clock generator
+│   │   ├── paradox_unit.v             # Hardware paradox accelerator
+│   │   └── neural_if.v                # Neural interface logic
+│   ├── fpga/                          # FPGA synthesis scripts
+│   │   ├── xilinx.tcl                 # Xilinx Vivado script
+│   │   ├── intel.tcl                  # Intel Quartus script
+│   │   └── bitstream/                 # Generated bitstream files (gitignored)
+│   └── simulation/                    # Hardware simulation
+│       ├── testbench.v                # Top‑level testbench
+│       └── waveforms/                 # Waveform outputs (gitignored)
+│
+├── examples/                          # Example Flux programs
+│   ├── hello.flux                     # Basic intention with cognitive sensation
+│   ├── timeline_fork.flux             # Creating and switching between timelines
+│   ├── causal_mosaic.flux             # Storing/retrieving without files
+│   ├── paradox_auth.flux              # Using a paradox as a password
+│   ├── hardening.flux                 # Making a time interval irreversible
+│   ├── probability_demo.flux          # Probabilistic values and collapse
+│   └── neural_chat.flux               # Two‑way neural conversation
+│
+├── tests/                             # Test suite
+│   ├── unit/                          # Unit tests for Flux compiler and TVM
+│   │   ├── test_lexer.py
+│   │   ├── test_parser.py
+│   │   ├── test_semantic.py
+│   │   ├── test_codegen.py
+│   │   ├── test_timeline.py
+│   │   └── test_collapse.py
+│   ├── integration/                   # Integration tests (full programs)
+│   │   ├── test_intention_lifecycle.flux
+│   │   ├── test_mosaic_consistency.flux
+│   │   └── test_paradox_resolution.flux
+│   └── benchmarks/                    # Performance benchmarks
+│       ├── timeline_switch.flux       # Measure timeline switching overhead
+│       └── collapse_speed.flux        # Collapse engine throughput
+│
+├── tools/                             # Additional utilities
+│   ├── flux_format.py                 # Code formatter for Flux
+│   ├── timeline_visualizer.py         # Visualize timeline trees (graphviz output)
+│   └── paradox_generator.py           # Generate controlled paradoxes for testing
+│
+└── .github/                           # GitHub automation
+    ├── workflows/                     # CI/CD pipelines
+    │   ├── ci.yml                     # Run tests on push
+    │   └── docs.yml                   # Build and deploy documentation
+    └── ISSUE_TEMPLATE/                # Issue templates
+        ├── bug_report.md
+        └── feature_request.md
