@@ -1,10 +1,10 @@
-# Nihilo OS – The Operating System from Nothing
+# Nihilo OS – The Operating System Written in Flux
 
 > *"There are no files. No permanent mistakes. Only intentions and timelines."*
 
-**Nihilo OS** (from Latin *ex nihilo* – "out of nothing") is a revolutionary operating system built **from scratch**, with no heritage from UNIX, Windows, or any known architecture. It rejects the core dogmas of modern computing: files, static memory, irreversible errors, and process-centric execution.
+**Nihilo OS** is a radical rethinking of operating systems. It is built **from scratch** – no UNIX, no Windows, no POSIX. Every part of the system, from the bootloader to the shell, is written in the **Flux language**.
 
-Instead, Nihilo OS introduces a **new paradigm**: temporal-causal computation based on **intentions**, **probabilities**, and **parallel timelines**.
+Flux is a **temporal‑causal language** designed for Nihilo OS. It replaces traditional concepts with **intentions**, **probabilities**, and **parallel timelines**.
 
 ---
 
@@ -12,127 +12,103 @@ Instead, Nihilo OS introduces a **new paradigm**: temporal-causal computation ba
 
 | Traditional concept | In Nihilo OS |
 |---------------------|---------------|
-| Files and folders | **Causal Mosaic** – a distributed, timeline-aware structure. Data exists only as differences between timeline states. |
-| RAM / Storage | **Non-volatile quantum memory** – every bit can be simultaneously read, written, and erased. |
-| Processes / Threads | **Intentions** – declarative units that trigger on events and can exist across multiple timelines. |
-| Errors (segfault, panic) | **Phantom branches** – mistakes create alternative timelines that can be explored or abandoned. |
-| Passwords / Keys | **Paradox security** – authentication requires reproducing a *temporally impossible event*. |
-| `commit` (git / database) | **Causal hardening** – makes a time interval irreversible, requires consensus and energy. |
-| Command line / GUI | **Neural interface** – the OS reads thought patterns and responds with sensations, colors, or subsonic tones. |
+| Files and folders | **Causal Mosaic** – a distributed, timeline‑aware key‑value store. Every write adds a weighted branch; reads collapse to the most probable value. |
+| RAM / Storage | **Non‑volatile quantum memory** (conceptual) – every bit can be read, written, and erased simultaneously. In practice: the mosaic persists to disk. |
+| Processes / Threads | **Intentions** – declarative units triggered by events, with priorities and conditions. They run when their condition becomes true. |
+| Errors (segfault, panic) | **Phantom branches** – mistakes create alternative timelines that can be explored or abandoned. No runtime errors. |
+| Passwords / Keys | **Paradox security** – authentication requires reproducing a temporally impossible pattern (e.g., a sequence of prime‑spaced intervals). |
+| Commit (git, database) | **Causal hardening** – makes a time interval irreversible, requiring consensus and energy. (Current implementation: symbolic.) |
+| Command line / GUI | **Neural interface** (conceptual) – simulated today as a REPL that reads commands from stdin and prints sensations. |
 
 ---
 
-## Core Concepts
+## Core Concepts (implemented)
 
 ### 1. Intentions
-An intention is a declaration: *"Under certain conditions, with a given probability, let this happen."* Intentions do not "run" – they **become real** in the timeline where conditions are met.
+An intention is a named block of code attached to `trigger`, `priority`, and `condition`.  
+It does not “run” once – the **scheduler** evaluates all intentions repeatedly and executes the highest‑priority eligible one.
 
-### 2. Timelines
-Every decision or mistake creates a new timeline. All timelines coexist in the **causal mosaic**. You can switch between them, merge them, or let some fade as phantoms.
+### 2. Causal Mosaic
+A persistent key‑value store where each key holds a **weighted set of values**.  
+Reading collapses the set (default: `max_weight`). Writes add a new `(value, weight)` branch.
 
-### 3. Causal Mosaic
-The replacement for a file system. It stores **components** (not files) indexed by keys. Each read operation collapses all relevant timeline versions into a single present.
+### 3. Timelines
+Named parallel realities. You can `create_timeline`, `set_current_timeline`, and `merge_timelines`.  
+Each timeline has its own causal history.
 
-### 4. Probability
-Any value can be expressed with a probability weight (0..1). For example: `x = 42 with probability 0.8` means "x is 42 in 80% of timelines".
+### 4. Probabilities & Collapse
+Any expression can be a weighted distribution. `collapse(dist, method)` turns belief into commitment.  
+Supported methods: `max_weight`, `mean`, `weighted_random`, `first`.
 
-### 5. Collapse
-The act of turning a probabilistic expression into a concrete value – using methods like "max weight", "average", or "random".
-
-### 6. Paradox
-A controlled logical inconsistency. Used for:
-- **Security** – authentication through irreproducible patterns (e.g., typing a specific sequence of prime-spaced intervals).
-- **Creativity** – generating unique temporal signatures.
-- **Learning** – demonstrating causality without harm.
-
-### 7. Causal Hardening
-An expensive operation that makes a time interval **irreversible** – even for the user who created it. It is the only way to create permanent, shared reality.
-
-### 8. Fractal Kernel
-The kernel rewrites itself at boot. It analyzes hardware as a puzzle and generates drivers on the fly. There is no fixed system call interface – the system negotiates causality with the hardware.
+### 5. Paradox Engine
+`generate_paradox(type, seed, length)` creates a token from a hardware‑accelerated LFSR (or software fallback).  
+`resolve_paradox(type, challenge, response)` verifies it. Used for authentication and creative challenges.
 
 ---
 
-## Quick Example
-
-A simple "Hello World" in Nihilo OS (written in the **Flux** language):
+## Quick Example – Hello World in Flux
 
 ```flux
 intention HelloWorld {
-    trigger: on_first_cognitive_signal()
+    trigger: on_boot()
     priority: 0.9
     execute: {
-        send_sensation("mental image", "✨ Welcome to Nihilo OS ✨", 3s);
-        
-        response = listen_intention(user, 10s, "silence");
-        
+        send("mental_image", "✨ Welcome to Nihilo OS ✨", 3s);
+        let response = listen(user, 10s, "silence");
         if response != "silence" then {
-            collapse(response, "max_weight");
-            send_sensation("inner voice", "You said: " ++ response, 1s);
+            send("inner_voice", "You said: " ++ response, 1s);
         }
     }
 }
-This program doesn't "run" – it becomes reality in the timeline where the user's cognitive signal is detected.
+This program doesn't “run” – it becomes reality when the scheduler picks it.
 
-Why "Nihilo"?
-Because the OS creates everything from nothing:
-
-No pre-existing file system.
-
-No fixed process model.
-
-No irreversible error until you deliberately harden causality.
-
-Every boot is a new act of creation.
-
-Current Status
-Nihilo OS is a conceptual design and a research project. A full implementation requires quantum‑temporal hardware that does not yet exist commercially. However, a simulated environment (the Temporal Virtual Machine, or TVM) allows experimentation on classical computers.
-
-What you can do today:
-Write Flux programs and run them on the TVM emulator.
-
-Explore timeline branching and collapse.
-
-Use the causal mosaic without files.
-
-Experiment with paradox-based security in a safe sandbox.
-
-Repository Structure
+Repository Structure (current)
 text
 nihilo-os/
-├── docs/               # Philosophy, architecture, security model
-├── flux/               # The Flux language compiler and toolchain
-├── tvm/                # Temporal Virtual Machine (emulator)
-├── examples/           # Sample Flux programs
-├── hardware/           # FPGA designs (experimental)
-└── README.md           # This file
+├── kernel/                 # 100% Flux – the entire OS
+│   ├── boot.flux
+│   ├── scheduler.flux
+│   ├── mosaic_service.flux
+│   ├── paradox_engine.flux
+│   ├── shell.flux
+│   └── main.flux
+├── tvm/                    # Temporal Virtual Machine (Python)
+│   ├── tvm.py              # bytecode interpreter
+│   └── fluxc.py            # Flux compiler (Python, used only at build time)
+├── examples/               # Example Flux programs
+├── docs/                   # Philosophy, language reference, internals
+└── README.md               # This file
+Code statistics: Over 90% of the system is written in Flux. The Python layer (TVM + compiler) is a build‑time / development dependency – it will eventually be replaced by a tiny C runtime.
+
 Getting Started (Simulated Environment)
 bash
 git clone https://github.com/exnihilo/nihilo-os.git
-cd nihilo-os/tvm
-make
-./tvm --demo
-Then try the examples:
+cd nihilo-os
 
-bash
-cd ../examples
-../flux/fluxc hello.flux --run
+# Compile the kernel into bytecode
+python3 tvm/fluxc.py kernel/main.flux -o nihilo.fluxb
+
+# Run the OS in REPL mode
+python3 tvm/tvm.py nihilo.fluxb --repl
+Once running, type help to see available commands: status, mosaic write/read, timeline list/new/switch, paradox challenge, exit.
+
 Documentation
-User Manual – Complete guide to using Nihilo OS.
+User Manual – How to use Nihilo OS and write Flux programs.
 
-Flux Language Reference – Syntax and semantics.
+Flux Language Reference – Complete syntax and semantics.
 
-Internals – Kernel architecture, temporal scheduler.
+Internals – Kernel architecture, scheduler, mosaic, paradox engine.
 
-Security Model – Paradox authentication, timeline isolation.
+Security Model – Paradox authentication and timeline isolation.
 
 Contributing
-We welcome thinkers who are not afraid to question 50 years of operating system design.
+We welcome contributions that write more Flux – new services, better scheduler policies, more built‑in functions.
+The eventual goal is to remove Python entirely by replacing the TVM with a small C interpreter.
 
 See CONTRIBUTING.md for details.
 
 License
-MIT License – see LICENSE for details.
+Apache License – see LICENSE.
 
 Nihilo OS is not just an operating system. It is a proof that mistakes are not failures – they are the raw material of parallel universes.
 
