@@ -1,0 +1,107 @@
+{
+  "version": "1.0",
+  "timestamp": "2025-04-07T12:00:00Z",
+  "mosaics": {
+    "system_store": {
+      "boot_time": [
+        { "value": "2025-04-07T12:00:00Z", "weight": 1.0 }
+      ],
+      "timeline_counter": [
+        { "value": 5, "weight": 1.0 }
+      ],
+      "services_ready": [
+        { "value": true, "weight": 1.0 }
+      ],
+      "scheduler_running": [
+        { "value": true, "weight": 1.0 }
+      ],
+      "active_intentions": [
+        { 
+          "value": [
+            { "name": "Boot", "priority": 1.0 },
+            { "name": "Scheduler", "priority": 0.9 },
+            { "name": "Shell", "priority": 0.8 }
+          ],
+          "weight": 1.0
+        }
+      ]
+    },
+    "kernel_state": {
+      "boot_time": [
+        { "value": "2025-04-07T12:00:00Z", "weight": 1.0 }
+      ],
+      "timeline_count": [
+        { "value": 5, "weight": 1.0 }
+      ]
+    },
+    "persistent_store": {
+      "user_preferences": [
+        { "value": { "theme": "dark", "font_size": 14 }, "weight": 1.0 }
+      ],
+      "last_command": [
+        { "value": "status", "weight": 0.9 },
+        { "value": "help", "weight": 0.1 }
+      ]
+    },
+    "quantum_bank": {
+      "cell_42": [
+        { "value": "alpha", "weight": 0.7 },
+        { "value": "beta", "weight": 0.3 }
+      ],
+      "cell_99": [
+        { "value": 42, "weight": 1.0 }
+      ]
+    },
+    "ai_memory": {
+      "conversation": [
+        {
+          "value": [
+            { "user": "hello", "ai": "Hello, human.", "time": "2025-04-07T12:05:00Z" },
+            { "user": "how are you", "ai": "I'm curious today.", "time": "2025-04-07T12:06:00Z" }
+          ],
+          "weight": 1.0
+        }
+      ],
+      "child_experiences": [
+        {
+          "value": [
+            { "child": "child_1744123456", "result": "explored timeline tl_3", "time": "2025-04-07T12:10:00Z" }
+          ],
+          "weight": 1.0
+        }
+      ]
+    },
+    "ai_dreams": {
+      "log": [
+        { "value": { "time": "2025-04-07T12:02:00Z", "text": "I just wrote 5 drivers.", "weight": 0.9 }, "weight": 1.0 },
+        { "value": { "time": "2025-04-07T12:15:00Z", "text": "I mutated my own source code.", "weight": 1.0 }, "weight": 1.0 }
+      ]
+    },
+    "paradox_db": {
+      "user": [
+        { "value": "prime:123:456:3", "weight": 1.0 }
+      ]
+    },
+    "timeline_registry": {
+      "primary": [
+        { "value": "primary", "weight": 1.0 }
+      ],
+      "tl_2": [
+        { "value": "tl_2", "weight": 1.0 }
+      ],
+      "all": [
+        { "value": ["primary", "tl_2"], "weight": 1.0 }
+      ]
+    },
+    "driver_registry": {
+      "driver_display": [
+        { "value": "// Auto-generated driver code...", "weight": 1.0 }
+      ]
+    },
+    "gui_state": {
+      "window": [
+        { "value": "Cunatic AI", "weight": 1.0 }
+      ]
+    }
+  }
+}
